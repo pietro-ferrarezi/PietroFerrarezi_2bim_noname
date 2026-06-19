@@ -1,0 +1,3 @@
+**/node_modules/
+**/.env
+database_infos/insert_values.sql
