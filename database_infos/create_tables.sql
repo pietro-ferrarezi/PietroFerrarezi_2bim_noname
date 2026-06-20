@@ -9,7 +9,7 @@ CREATE TABLE public.culturas (
   nome_cientifico VARCHAR(100) NOT NULL,
   epoca_plantio VARCHAR(100) NOT NULL,
   tempo_colheita VARCHAR(50) NOT NULL,
-  produtividade_media DECIMAL(5,2) NOT NULL,
+  produtividade_media VARCHAR(20) NOT NULL,
   imagem VARCHAR(255),
   descricao TEXT
 );
@@ -19,7 +19,8 @@ CREATE TABLE public.estados (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
   sigla CHAR(2) NOT NULL UNIQUE,
-  clima VARCHAR(50)
+  vpb VARCHAR(20),
+  clima VARCHAR(255)
 );
 
 -- Relacionamento (N-N) das culturas por estados
