@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+@font-face {
+  font-family: 'Jonesy Capitals';
+  src: url('/fonts/jonesy/Jonesy-Capitals.otf') format('opentype'),
+       url('/fonts/jonesy/Jonesy-Capitals.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Jonesy Script';
+  src: url('/fonts/jonesy/Jonesy-Script.otf') format('opentype'),
+       url('/fonts/jonesy/Jonesy-Script.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Jonesy Capitals', sans-serif;
+}
