@@ -1,5 +1,4 @@
 window.onload = () => {
-  estado.carrinho = JSON.parse(localStorage.getItem("carrinho"));
   renderizarCarrinho();
 };
 
@@ -70,8 +69,12 @@ function esvaziarCarrinho() {
   renderizarCarrinho();
 }
 function finalizarPedido() {
-  esvaziarCarrinho();
-  mostrarAviso();
+  if (estado.carrinho.length == 0) {
+    mostrarAviso(2);
+  } else {
+    esvaziarCarrinho();
+    mostrarAviso(1);
+  }
 }
 
 document.querySelector(".itens").addEventListener("click", (e) => {

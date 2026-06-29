@@ -147,7 +147,7 @@ function confirmarAdd() {
   estado.produtoSelecionado = null;
   estado.complementosSelecionados = [];
   fecharModal();
-  mostrarAviso();
+  mostrarAviso(1);
 }
 
 function atualizarDisplayPreco() {

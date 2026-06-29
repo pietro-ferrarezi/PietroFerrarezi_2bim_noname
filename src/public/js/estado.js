@@ -7,7 +7,10 @@ let estado = {
   complementosSelecionados: [],
   precoTotal: 0,
 
-  carrinho: localStorage.getItem("carrinho") != undefined ? JSON.parse(localStorage.getItem("carrinho")) : [],
+  carrinho:
+    localStorage.getItem("carrinho") != undefined
+    ? JSON.parse(localStorage.getItem("carrinho"))
+    : [],
 };
 
 function salvarCarrinho() {

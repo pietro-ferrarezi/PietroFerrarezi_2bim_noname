@@ -108,6 +108,9 @@ main {
   top: 87vh;
   left: auto;
 }
+.aviso-caixa .erro {
+  background-color: rgb(255, 75, 52);
+}
 
 .cabecalho {
   background: linear-gradient(135deg, #891abd, #a521e2);

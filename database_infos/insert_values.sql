@@ -28,11 +28,13 @@ VALUES
 ('Chocolate em pó', 2.00),
 ('Banana', 3.00);
 
-INSERT INTO public.pedidos (nome_cliente, preco_total)
+INSERT INTO public.pedidos (nome_cliente, preco_total, data)
 VALUES
-('Kauã Neto', 33.90),
-('Flávia Moreira Rabelo', 59.00),
-('Camila Mourão de Oliveira', 74.80);
+('Kauã Neto', 33.90, '2026-06-15 17:20:00'),
+('Flávia Moreira Rabelo', 59.00, '2026-06-10 12:45:00'),
+('Camila Mourão de Oliveira', 74.80, '2026-06-01 08:30:00'),
+('João Tavares de Almeida', 28.90, '2026-06-22 09:10:00'),
+('Carla Maria de Souza', 32.90, '2026-06-29 21:55:00');
 
 INSERT INTO public.itens_pedido (id_pedido, id_produto, quantidade)
 VALUES
@@ -43,7 +45,9 @@ VALUES
 (2, 9, 1),
 (3, 2, 1),
 (3, 2, 1),
-(3, 10, 2);
+(4, 2, 1),
+(5, 2, 1),
+(5, 9, 1);
 
 INSERT INTO public.itens_pedido_complemento (id_item, id_complemento)
 VALUES
@@ -52,4 +56,7 @@ VALUES
 (6, 8),
 (6, 2),
 (7, 3),
-(7, 5);
+(7, 5),
+(8, 4),
+(8, 1),
+(9, 3);

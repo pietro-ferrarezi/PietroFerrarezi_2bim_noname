@@ -1,6 +1,6 @@
 -- Nome do banco de dados: sistema_acai
 
-DROP TABLE IF EXISTS public.itens_pedido_complemento, public.itens_pedido, public.produtos, public.complementos;
+DROP TABLE IF EXISTS public.itens_pedido_complemento, public.itens_pedido, public.produtos, public.complementos, public.pedidos;
 
 CREATE TABLE public.produtos (
   id_produto SERIAL PRIMARY KEY,
@@ -16,6 +16,13 @@ CREATE TABLE public.complementos (
   id_complemento SERIAL PRIMARY KEY,
   nome VARCHAR(100) NOT NULL,
   preco DECIMAL(5,2) NOT NULL
+);
+
+CREATE TABLE public.pedidos (
+  id_pedido SERIAL PRIMARY KEY,
+  nome_cliente VARCHAR(255) NOT NULL,
+  data TIMESTAMP NOT NULL DEFAULT NOW(),
+  preco_total DECIMAL(5,2) NOT NULL
 );
 
 CREATE TABLE public.itens_pedido (
