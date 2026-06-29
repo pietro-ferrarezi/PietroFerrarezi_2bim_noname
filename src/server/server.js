@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, "..", "public/")))
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "views/portaria.html"))
 });
+
 app.get("/redirect", (req, res) => {
   const tipo = req.query.tipo;
 
@@ -34,7 +35,7 @@ app.get("/cliente", (req, res) => {
 });
 
 app.get("/vendedor", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "views/admin/index_admin.html"));
+  res.sendFile(path.join(__dirname, "..", "views/admin/index_vendedor.html"));
 });
 
 app.get("/cliente/carrinho", (req, res) => {

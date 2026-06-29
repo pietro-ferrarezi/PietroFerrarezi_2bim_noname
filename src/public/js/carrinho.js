@@ -1,6 +1,5 @@
 window.onload = () => {
   estado.carrinho = JSON.parse(localStorage.getItem("carrinho"));
-  console.log(estado.carrinho);
   renderizarCarrinho();
 };
 
@@ -8,9 +7,9 @@ function renderizarCarrinho() {
   if (estado.carrinho === null || estado.carrinho.length === 0) {
     document.querySelector(".itens").innerHTML =
       '<p class="default">Carrinho vazio</p>';
+    renderizarTotalCarrinho()
   } else {
-    const total = calcularTotalCarrinho();
-    document.querySelector("#total").innerText = `R$${total.replace(".", ",")}`;
+    renderizarTotalCarrinho()
     document.querySelector(".itens").innerHTML = "";
     estado.carrinho.forEach((item) => {
       document.querySelector(".itens").append(criarCardItem(item));
@@ -40,6 +39,7 @@ function criarCardItem(item) {
 
   const button_excluir = document.createElement("button");
   button_excluir.classList.add("btn-excluir");
+  button_excluir.dataset.itemId = estado.carrinho.indexOf(item);
   button_excluir.innerHTML = '<i class="fa-solid fa-trash"></i>';
 
   item_card.append(item_infos, button_excluir);
@@ -49,11 +49,19 @@ function criarCardItem(item) {
 
 function calcularTotalCarrinho() {
   let total = 0;
-  estado.carrinho.forEach((item) => {
-    total += parseFloat(item.precoTotalItem);
-  });
+
+  if (estado.carrinho != null) {
+    estado.carrinho.forEach((item) => {
+      total += parseFloat(item.precoTotalItem);
+    });
+  }
 
   return total.toFixed(2);
+}
+
+function renderizarTotalCarrinho() {
+  const total = calcularTotalCarrinho();
+  document.querySelector("#total").innerText = `R$${total.replace(".", ",")}`;
 }
 
 function esvaziarCarrinho() {
@@ -64,4 +72,17 @@ function esvaziarCarrinho() {
 function finalizarPedido() {
   esvaziarCarrinho();
   mostrarAviso();
+}
+
+document.querySelector(".itens").addEventListener("click", (e) => {
+  const botao = e.target.closest("button.btn-excluir");
+  if (botao) {
+    removerItem(botao.dataset.itemId);
+  }
+});
+
+function removerItem(id) {
+  estado.carrinho = estado.carrinho.filter((i, index) => index != id);
+  localStorage.setItem("carrinho", JSON.stringify(estado.carrinho));
+  renderizarCarrinho();
 }

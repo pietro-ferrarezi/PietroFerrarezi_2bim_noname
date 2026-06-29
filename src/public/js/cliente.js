@@ -148,7 +148,6 @@ function confirmarAdd() {
   estado.complementosSelecionados = [];
   fecharModal();
   mostrarAviso();
-  console.log(estado.carrinho);
 }
 
 function atualizarDisplayPreco() {
@@ -160,8 +159,6 @@ function calcularPrecoTotalItem() {
   let precoTotal = 0;
 
   precoTotal += parseFloat(estado.produtoSelecionado.preco);
-
-  console.log(estado.complementosSelecionados);
 
   estado.complementosSelecionados.forEach((complemento) => {
     precoTotal += parseFloat(complemento.preco);
